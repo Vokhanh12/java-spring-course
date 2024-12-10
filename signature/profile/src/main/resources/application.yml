@@ -1,0 +1,29 @@
+server:
+  port: 8881
+  servlet:
+    context-path: /profile
+
+spring:
+  application:
+    name: profile
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: ${DBMS_CONNECTION:jdbc:postgresql://localhost:5432}/profile
+    username: ${DBMS_USERNAME:postgres}
+    password: ${DBMS_PASSWORD:postgres}
+    jpa:
+      hibernate:
+        # The SQL dialect makes Hibernate generate better SQL for the chosen database
+        ddl-auto: update
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${OAUTH2_URI:http://localhost:8080/realms/softz}
+
+idp:
+  url: ${IDENTITY_SERVICE_URL:http://localhost:8080/}
+  realm: ${IDENTITY_SERVICE_REALM:softz}
+  client-id: ${IDENTITY_SERVICE_CLIENT_ID:service_client}
+  client-secret: ${IDENTITY_SERVICE_CLIENT_SECRET:EXRwWZqIrgoaEanEKqRUWRLCdQzgd5yu}
