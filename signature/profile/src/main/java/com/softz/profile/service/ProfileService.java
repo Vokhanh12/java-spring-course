@@ -13,8 +13,9 @@ import org.springframework.stereotype.Service;
 public class ProfileService {
     ProfileRepository profileRepository;
 
-
     public Profile create(Profile profile){
         return profileRepository.save(profile);
     }
+
+
 }

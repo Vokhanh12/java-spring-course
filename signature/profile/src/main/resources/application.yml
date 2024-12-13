@@ -11,10 +11,10 @@ spring:
     url: ${DBMS_CONNECTION:jdbc:postgresql://localhost:5432}/profile
     username: ${DBMS_USERNAME:postgres}
     password: ${DBMS_PASSWORD:postgres}
-    jpa:
-      hibernate:
-        # The SQL dialect makes Hibernate generate better SQL for the chosen database
-        ddl-auto: update
+  jpa:
+    hibernate:
+      # The SQL dialect makes Hibernate generate better SQL for the chosen database
+      ddl-auto: update
 
   security:
     oauth2:

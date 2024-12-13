@@ -1,7 +1,9 @@
 package com.softz.profile.facade;
 
+import com.softz.profile.dto.request.AuthenticationParam;
 import com.softz.profile.dto.request.RegistrationParam;
 import com.softz.profile.dto.response.ProfileDto;
+import com.softz.profile.dto.response.TokenDto;
 import com.softz.profile.entity.Profile;
 import com.softz.profile.service.IdentityService;
 import com.softz.profile.service.ProfileService;
@@ -45,6 +47,12 @@ public class UserFacade {
                 profile.getFirstName(),
                 profile.getLastName()
         );
+    }
+
+    public TokenDto authenticate(AuthenticationParam param) {
+        // Authenticate user in KeyCloak
+        // Get token from KeyCloak
+        return identityService.authenticate(param);
     }
 
 }
